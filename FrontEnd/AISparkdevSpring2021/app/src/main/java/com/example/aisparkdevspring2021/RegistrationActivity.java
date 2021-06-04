@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -28,7 +29,8 @@ import java.util.Map;
 public class RegistrationActivity extends AppCompatActivity {
 
     private Button mRegister;
-    private EditText mEmail, mPassword, mName;
+    private ImageView mAddImages;
+    private EditText mEmail, mPassword, mName, mPhoneNumber;
 
 
     private RadioGroup mRadioGroup;
@@ -45,10 +47,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         mRegister = findViewById(R.id.register);
+        mAddImages = findViewById(R.id.add_images);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         mName = findViewById(R.id.name);
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        mPhoneNumber = findViewById(R.id.phone);
 
 
         mRegister.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +82,16 @@ public class RegistrationActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        mAddImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addImagesIntent = new Intent(RegistrationActivity.this, AddImages.class);
+                startActivity(addImagesIntent);
+            }
+        });
+
+
     }
 
 
